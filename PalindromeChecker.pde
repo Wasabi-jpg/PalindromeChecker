@@ -18,8 +18,18 @@ public boolean palindrome(String word)
 {
   //your code here
   String x = "";
+  String y = "";
+  String z = "";
   x = reverse(word);
   if(x.equals(word)){
+    return true;
+  }
+  y = noSpaces(word);
+  if(y.equals(reverse(noSpaces(word)))){
+    return true;
+  }
+  z = noSpaces(noCaps(letters(word)));
+  if(z.equals(reverse(noSpaces(noCaps(letters(word)))))){
     return true;
   }
   return false;
@@ -32,6 +42,31 @@ public String reverse(String str)
       sNew = sNew + str.substring(i-1,i);
     }
     return sNew;
+}
+public String noSpaces(String str)
+{
+  String sNew = new String();
+  for(int i = 0; i < str.length(); i++){
+    if(!str.substring(i,i+1).equals(" ")){
+      sNew = sNew + str.substring(i,i+1);
+    }
+  }
+  return sNew;
+}
+public String letters(String str)
+{
+  String sNew = new String();
+  for (int i = 0; i<str.length(); i++){
+    if(Character.isLetter(str.charAt(i))){
+      sNew = sNew + str.substring(i,i+1);
+    }
+  }
+  return sNew;
+}
+public String noCaps(String str)
+{
+  return str.toLowerCase();
+
 }
 
 
