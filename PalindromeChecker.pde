@@ -17,17 +17,7 @@ public void setup()
 public boolean palindrome(String word)
 {
   //your code here
-  String x = "";
-  String y = "";
   String z = "";
-  x = reverse(word);
-  if(x.equals(word)){
-    return true;
-  }
-  y = noSpaces(word);
-  if(y.equals(reverse(noSpaces(word)))){
-    return true;
-  }
   z = noSpaces(noCaps(letters(word)));
   if(z.equals(reverse(noSpaces(noCaps(letters(word)))))){
     return true;
